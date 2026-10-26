@@ -1,0 +1,17 @@
+node_modules
+dist
+.dev.vars
+.env.local
+.wrangler
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+.dev.vars
+
+# Dependencies
+node_modules/
+
+# Build Output
+dist/

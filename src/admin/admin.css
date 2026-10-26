@@ -1,0 +1,343 @@
+/* ==========================================================================
+   Imperial Gatekeeper Terminal, Dashboard & Starfield Galaxy FX
+   ========================================================================== */
+
+/* Layout Utama Dashboard & Terminal */
+.admin,
+.imperial-terminal-wrapper {
+  min-height: 100vh;
+  background-color: #030504;
+  color: #00ff66;
+  font-family: "Courier New", Courier, monospace;
+  box-sizing: border-box;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.admin {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem clamp(1.25rem, 5vw, 3rem) 5rem;
+  z-index: 2;
+}
+
+.imperial-terminal-wrapper {
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+/* CSS Galaxy / Starfield Layers */
+.starfield,
+.starfield-twinkle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.starfield {
+  background-image: 
+    radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 40px 70px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 90px 40px, #00ff66, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 230px 190px, #00e5ff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 310px 80px, #ffffff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 350px 350px;
+  opacity: 0.6;
+}
+
+.starfield-twinkle {
+  background-image: 
+    radial-gradient(2px 2px at 50px 160px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 120px 250px, #00ff66, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 280px 60px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 200px 320px, #ffffff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  animation: starTwinkle 4s infinite alternate ease-in-out;
+  opacity: 0.4;
+}
+
+@keyframes starTwinkle {
+  0% { opacity: 0.2; transform: scale(0.98); }
+  100% { opacity: 0.7; transform: scale(1.02); }
+}
+
+/* Gatekeeper Card UI */
+.imperial-card {
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid #00ff66;
+  box-shadow: 0 0 20px rgba(0, 255, 102, 0.2), inset 0 0 15px rgba(0, 255, 102, 0.08);
+  border-radius: 4px;
+  padding: 2rem;
+  background-color: rgba(6, 12, 7, 0.92);
+  backdrop-filter: blur(4px);
+  position: relative;
+  z-index: 2;
+}
+
+.imperial-header-title {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #00cc52;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #00441b;
+  padding-bottom: 0.75rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.imperial-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.imperial-label {
+  font-size: 0.875rem;
+  color: #00ff66;
+  text-shadow: 0 0 5px rgba(0, 255, 102, 0.5);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.imperial-input {
+  width: 100%;
+  padding: 0.85rem;
+  border-radius: 2px;
+  border: 1px solid #00ff66;
+  background-color: #000000;
+  color: #00ff66;
+  font-family: inherit;
+  font-size: 0.85rem;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: inset 0 0 8px rgba(0, 255, 102, 0.2);
+}
+
+.imperial-input::placeholder {
+  color: #006622;
+}
+
+/* Admin Dashboard Elements */
+.admin-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #00441b;
+  padding-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.admin h1 {
+  font-size: 1.8rem;
+  color: #00ff66;
+  text-shadow: 0 0 8px rgba(0, 255, 102, 0.4);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.admin-badge.warning {
+  background: #2b1f00;
+  color: #ffcc00;
+  border: 1px solid #ffcc00;
+  padding: 0.25rem 0.6rem;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 0 5px rgba(255, 204, 0, 0.3);
+}
+
+.admin-note {
+  color: #00cc52;
+  font-size: 0.85rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.admin-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-label {
+  display: block;
+  font-weight: bold;
+  color: #00ff66;
+  margin: 1.5rem 0 0.5rem;
+  letter-spacing: 1px;
+}
+
+.admin-char-count {
+  font-size: 0.85rem;
+  color: #00cc52;
+}
+
+.admin-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: 0.75rem 0;
+}
+
+.admin-row.secondary-actions {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #00441b;
+}
+
+.admin input,
+.admin textarea {
+  width: 100%;
+  font: 0.9rem/1.5 "Courier New", Courier, monospace;
+  color: #00ff66;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid #00ff66;
+  border-radius: 2px;
+  padding: 0.8rem 1rem;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 8px rgba(0, 255, 102, 0.15);
+  outline: none;
+}
+
+.admin input {
+  flex: 1;
+  min-width: 14rem;
+  width: auto;
+}
+
+.admin textarea {
+  resize: vertical;
+  tab-size: 2;
+}
+
+.admin button,
+.imperial-btn {
+  font: bold 0.85rem "Courier New", Courier, monospace;
+  cursor: pointer;
+  border: 1px solid #00ff66;
+  background: #002b11;
+  color: #00ff66;
+  padding: 0.65rem 1.1rem;
+  border-radius: 2px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.admin button:hover:not(:disabled),
+.imperial-btn:hover:not(:disabled) {
+  background: #00ff66;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(0, 255, 102, 0.6);
+}
+
+.admin button:disabled,
+.imperial-btn:disabled {
+  opacity: 0.35;
+  border-color: #005522;
+  color: #005522;
+  background: #000000;
+  cursor: not-allowed;
+}
+
+.admin button.primary {
+  background: #005522;
+  color: #00ff66;
+  border-color: #00ff66;
+}
+
+.admin button.danger {
+  color: #ff3333;
+  border-color: #ff3333;
+  background: #2b0000;
+}
+
+.admin button.danger:hover:not(:disabled) {
+  background: #ff3333;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(255, 51, 51, 0.6);
+}
+
+/* Floating HUD Notification Toast */
+.admin-msg {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 450px;
+  min-width: 280px;
+  padding: 0.9rem 1.2rem;
+  border-radius: 2px;
+  font: 0.88rem/1.4 "Courier New", Courier, monospace;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  animation: slideInToast 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideInToast {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.admin-msg pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.admin-msg-close {
+  background: transparent;
+  border: 1px solid currentColor;
+  color: inherit;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.admin-msg-close:hover {
+  background: currentColor;
+}
+
+.admin-msg.ok .admin-msg-close:hover {
+  color: #000000;
+}
+
+.admin-msg.error .admin-msg-close:hover {
+  color: #000000;
+}
+
+.admin-msg.ok {
+  background: rgba(0, 15, 6, 0.95);
+  color: #00ff66;
+  border: 1px solid #00ff66;
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+}
+
+.admin-msg.error {
+  background: rgba(25, 0, 0, 0.95);
+  color: #ff6666;
+  border: 1px solid #ff3333;
+  box-shadow: 0 0 15px rgba(255, 51, 51, 0.3);
+}

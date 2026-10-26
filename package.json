@@ -1,0 +1,30 @@
+{
+  "name": "sabil-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "overrides": {
+    "undici": "^7.30.1"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "audit:check": "npm audit --audit-level=moderate",
+    "admin:key": "node scripts/generate-admin-key.mjs",
+    "deploy": "vite build && wrangler deploy",
+    "preview:worker": "vite build && wrangler dev"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "vite": "^8.0.0",
+    "wrangler": "^4.152.0"
+  }
+}

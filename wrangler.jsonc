@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Same name as your existing Worker, so deploying updates it.
+  "name": "me",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-26",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "kv_namespaces": [
+    { "binding": "SITE_KV", "id": "2580ca2b92c5407abc5478b850dd4ad6" }
+  ]
+}
